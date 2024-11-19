@@ -1,0 +1,29 @@
+//- details.pug
+html
+  head
+    title Product Details
+    link(rel='stylesheet', href='/styles.css')
+  body
+    h1 Product Details
+
+    //- Display product information
+    p ID: #{product.getId()}
+    p Name: #{product.getName()}
+    p Price: #{product.getPrice()}
+    p Quantity: #{product.getQuantity()}
+    p Type: #{product.type}
+
+    //- Display additional details based on product type
+    if product.type === 'clothing'
+      p Size: #{product.size}
+      p Material: #{product.material}
+    else if product.type === 'electronics'
+      p Brand: #{product.brand}
+      p Warranty: #{product.warranty}
+
+    //- Display converted price if available
+    if convertedPrice
+      p Converted Price (#{targetCurrency}): #{convertedPrice}
+
+    //- Link back to the inventory list
+    a(href="/") Back to Inventory
